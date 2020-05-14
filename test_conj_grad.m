@@ -2,14 +2,8 @@ clear all
 
 %make toy example Ax=b with nice well conditioned A (diagonally dominant)
 dim = 8
-A=[]
-for i=1:dim
-    A = [A;1:dim]
-end
-%make invertible
-for i=1:dim
-    A(i,i) = 100
-end
+
+A = smallcond(dim)
 
 b = [1:dim]'
 c_test = A\b;
